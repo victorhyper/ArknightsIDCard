@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "vamwNXmKfVgMi9WzVwqthETPmkl9IBrfGx5LyfF2m4s5CThBMiv3o80npNMaYDGTzKMDevBJM1f5o5LYCevzvg==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\HG\\source\\repos\\IDCardMaker\\IDCardMaker.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\HG\\.nuget\\packages\\materialdesigncolors\\2.0.6\\materialdesigncolors.2.0.6.nupkg.sha512",
+    "C:\\Users\\HG\\.nuget\\packages\\materialdesignthemes\\4.5.0\\materialdesignthemes.4.5.0.nupkg.sha512"
+  ],
+  "logs": []
+}
