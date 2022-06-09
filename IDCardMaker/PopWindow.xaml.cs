@@ -24,11 +24,11 @@ namespace IDCardMaker
         public PopWindow()
         {
             InitializeComponent();
-            for(int i = 1; i < 71; i++)
+            for(int i = 1; i < 91; i++)
             {
                 Level.Items.Add(i);
             }
-            for (int i = 0; i < 6; i++)
+            for (int i = 1; i < 7; i++)
             {
                 Potential.Items.Add(i);
             }

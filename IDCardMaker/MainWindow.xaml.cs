@@ -10,6 +10,7 @@ using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
+using System.Windows.Media.Effects;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
@@ -118,8 +119,28 @@ namespace IDCardMaker
                 bitmap.BeginInit();
                 bitmap.Source = (BitmapSource)bi;
                 bitmap.DestinationFormat = PixelFormats.Gray32Float;
+                bitmap.DestinationFormat = PixelFormats.Indexed4;
+                //自定义调色板
+                List<System.Windows.Media.Color> colors = new List<System.Windows.Media.Color>();
+                colors.Add(Color.FromRgb(91,91,91));
+                colors.Add(Color.FromRgb(92,92,92));
+                colors.Add(Color.FromRgb(93,93,93));
+                colors.Add(Color.FromRgb(94,94,94));
+                colors.Add(Color.FromRgb(95,95,95));
+                colors.Add(Color.FromRgb(111,111,111));
+                colors.Add(Color.FromRgb(127,127,127));
+                colors.Add(Color.FromRgb(143,143,143));
+                colors.Add(Color.FromRgb(159,159,159));
+                colors.Add(Color.FromRgb(175,175,175));
+                colors.Add(Color.FromRgb(191,191,191));
+                colors.Add(Color.FromRgb(207,207,207));
+                colors.Add(Color.FromRgb(223,223,223));
+                colors.Add(Color.FromRgb(239,239,239));
+                colors.Add(Color.FromRgb(255, 255, 255));
+                BitmapPalette myPalette = new BitmapPalette(colors);
+                bitmap.DestinationPalette = myPalette;
                 bitmap.EndInit();
-                bitmap.Freeze();
+                //bitmap.Freeze();
             }
            
             //显示
@@ -164,8 +185,28 @@ namespace IDCardMaker
                     bitmap.BeginInit();
                     bitmap.Source = (BitmapSource)bi;
                     bitmap.DestinationFormat = PixelFormats.Gray32Float;
+                    bitmap.DestinationFormat = PixelFormats.Indexed4;
+                    //自定义调色板
+                    List<System.Windows.Media.Color> colors = new List<System.Windows.Media.Color>();
+                    colors.Add(Color.FromRgb(91, 91, 91));
+                    colors.Add(Color.FromRgb(92, 92, 92));
+                    colors.Add(Color.FromRgb(93, 93, 93));
+                    colors.Add(Color.FromRgb(94, 94, 94));
+                    colors.Add(Color.FromRgb(95, 95, 95));
+                    colors.Add(Color.FromRgb(111, 111, 111));
+                    colors.Add(Color.FromRgb(127, 127, 127));
+                    colors.Add(Color.FromRgb(143, 143, 143));
+                    colors.Add(Color.FromRgb(159, 159, 159));
+                    colors.Add(Color.FromRgb(175, 175, 175));
+                    colors.Add(Color.FromRgb(191, 191, 191));
+                    colors.Add(Color.FromRgb(207, 207, 207));
+                    colors.Add(Color.FromRgb(223, 223, 223));
+                    colors.Add(Color.FromRgb(239, 239, 239));
+                    colors.Add(Color.FromRgb(255, 255, 255));
+                    BitmapPalette myPalette = new BitmapPalette(colors);
+                    bitmap.DestinationPalette = myPalette;
                     bitmap.EndInit();
-                    bitmap.Freeze();
+                    //bitmap.Freeze();
                     ((Image)sender).Source = bitmap;
                     op.Enable = false;
                 }
