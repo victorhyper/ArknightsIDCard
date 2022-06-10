@@ -19,22 +19,27 @@
             <TabControl Width="1200" Height="900" TabStripPlacement="Left" Style="{StaticResource MaterialDesignFilledTabControl}" SelectionChanged="TabControl_SelectionChanged">
                 <TabItem Header="博士基本信息">
                     <Grid>
-                        <StackPanel Width="200">
-                            <TextBox
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="200"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <StackPanel Width="200" Grid.Column="0" VerticalAlignment="Center">
+                            <TextBox Height="40"
                             x:Name="NameTextBox"
                             materialDesign:HintAssist.Hint="Name"
-                            materialDesign:HintAssist.HelperText="">
+                            materialDesign:HintAssist.HelperText="" TextChanged="NameTextBox_TextChanged">
                             </TextBox>
                             <TextBox
-                            x:Name="IDTextBox"
+                            x:Name="IDTextBox" Height="40"
                             materialDesign:HintAssist.Hint="ID"
-                            materialDesign:HintAssist.HelperText="">
+                            materialDesign:HintAssist.HelperText="" TextChanged="IDTextBox_TextChanged">
                             </TextBox>
                             <DatePicker
                                 Width="200"
                                 x:Name="DateIn"
                                 materialDesign:HintAssist.Hint="注册时间"
                                 materialDesign:TextFieldAssist.HasClearButton="True"
+                                SelectedDateChanged="DateInChanged"
                                 Style="{StaticResource MaterialDesignFloatingHintDatePicker}" />
                             <DatePicker
                                 Width="200"
@@ -43,6 +48,21 @@
                                 materialDesign:TextFieldAssist.HasClearButton="True"
                                 Style="{StaticResource MaterialDesignFloatingHintDatePicker}" />
                         </StackPanel>
+                        <Canvas Grid.Column="1"  Width="800" Height="450">
+                            <Image x:Name="backgroundImage" Width="800" Height="450"/>
+                            <TextBlock x:Name="HeadPhoto" Width="43" Height="43" Margin="41,36,0,0" Text="助手头像" FontSize="10" TextAlignment="Center" Background="White"/>
+                            <TextBlock x:Name="DrName" Width="Auto" Height="30" Margin="90,30,0,0" Text="Dr. Astreo#114514" FontSize="26" TextAlignment="Left" Foreground="White"/>
+                            <TextBlock x:Name="Date" Width="Auto" Height="15" Margin="90,63,0,0" Text="2019.05.06——2022.06.10    ID:93291412" FontSize="13" TextAlignment="Left" Foreground="White"/>
+                            <Grid x:Name="SSL" Height="372" Width="718" Margin="41,78,0,0">
+                            </Grid>
+                            <TextBlock>
+                                <Hyperlink
+                                    IsEnabled="False"
+                                    Style="{StaticResource MaterialDesignBody1Hyperlink}">
+                                    仅供控制间隙并非最终效果
+                                </Hyperlink>
+                            </TextBlock>
+                        </Canvas>
                     </Grid>
                 </TabItem>
                 <TabItem Header="干员信息">

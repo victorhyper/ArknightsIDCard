@@ -55,6 +55,21 @@ namespace IDCardMaker
         {
             InitializeComponent();
             operators = new List<Operator>();
+            //设置背景图
+            BitmapImage bitmap = new BitmapImage();
+            bitmap.BeginInit();
+            bitmap.UriSource = new Uri(System.IO.Directory.GetCurrentDirectory() + "\\Source\\BKG.png", UriKind.Relative);
+            bitmap.DecodePixelHeight = 450;
+            bitmap.DecodePixelWidth = 800;
+            bitmap.EndInit();
+            bitmap.Freeze();
+            backgroundImage.Source = bitmap;
+            //加载当前日期
+            DateNow.Text = DateTime.Today.ToString("yyyy/M/d");
+            DateNow.IsEnabled = false;
+            //加载苏苏洛
+            LoadSSL();
+            //加载干员
             StreamReader streamReader = new StreamReader(System.IO.Directory.GetCurrentDirectory() + "\\Source\\BoxData.json");
             string line,jstr="";
             while ((line = streamReader.ReadLine()) != null)
@@ -287,6 +302,88 @@ namespace IDCardMaker
                 streamWriter.WriteLine(re);
                 streamWriter.Close();
             }
+        }
+
+        //加载苏苏洛，一包抽七个
+        private void LoadSSL()
+        {
+            BitmapImage bitmap1 = new BitmapImage();
+            bitmap1.BeginInit();
+            bitmap1.UriSource = new Uri(System.IO.Directory.GetCurrentDirectory() + "\\Source\\Character\\头像_苏苏洛.png", UriKind.Relative);
+            bitmap1.DecodePixelHeight = 50;
+            bitmap1.DecodePixelWidth = 44;
+            bitmap1.EndInit();
+            bitmap1.Freeze();
+
+            int colmax=0,rowmax=0;
+            colmax = (int)(SSL.Width / (44.0 + 25.0 / 4.125));
+            rowmax = (int)(SSL.Height / (50.0 + 25.0 / 4.125));
+
+            for(int i=0;i<rowmax;i++)
+            {
+                RowDefinition rowd = new RowDefinition();
+                rowd.Height = new GridLength(50.0 + 25.0 / 4.125);
+                SSL.RowDefinitions.Add(rowd);
+            }
+
+            for (int i = 0; i < colmax; i++)
+            {
+                ColumnDefinition cold = new ColumnDefinition();
+                cold.Width = new GridLength(44.0 + 25.0 / 4.125);
+                SSL.ColumnDefinitions.Add(cold);
+            }
+
+            for(int i = 0; i < rowmax; i++)
+            {
+                for(int j=0;j<colmax;j++)
+                {
+                    Image temp = new Image();
+                    temp.Height = 50;
+                    temp.Width = 44;
+                    temp.Source = bitmap1;
+                    temp.SetValue(Grid.RowProperty, i);
+                    temp.SetValue(Grid.ColumnProperty, j);
+                    SSL.Children.Add(temp);
+                }
+            }
+        }
+
+        private void NameTextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            var name = (sender as TextBox).Text;
+            DrName.Text = "DR." + name;
+        }
+
+        private void IDTextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            var ID = (sender as TextBox).Text;
+            string temp = Date.Text;
+            var wordList = temp.Split(' ');
+            Date.Text = wordList[0]+"    ID:" + ID;
+        }
+        private void DateInChanged(object sender, SelectionChangedEventArgs e)
+        {
+            var datepicker=sender as DatePicker;
+            var datein = datepicker.SelectedDate.ToString();
+            var wordList = datein.Split(' ');
+            datein = wordList[0];
+            wordList = datein.Split('/');
+            string date1 = "";
+            for(int i=0;i<wordList.Length;i++)
+            {
+                date1 +=wordList[i]+".";
+            }
+            date1=date1.Substring(0,date1.Length-1);
+
+            string date2 = "";
+            wordList = DateNow.Text.ToString().Split('/');
+            for (int i = 0; i < wordList.Length; i++)
+            {
+                date2 += wordList[i] + ".";
+            }
+            date2=date2.Substring(0, date2.Length - 1);
+
+            Date.Text = date1 + "——" + date2+"    "+"ID:"+IDTextBox.Text;
         }
     }
 }
