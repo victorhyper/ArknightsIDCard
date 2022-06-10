@@ -79,3 +79,4 @@ C:\Users\victo\Desktop\Github\IDCardMaker\obj\Debug\net6.0-windows\refint\IDCard
 C:\Users\victo\Desktop\Github\IDCardMaker\obj\Debug\net6.0-windows\IDCardMaker.pdb
 C:\Users\victo\Desktop\Github\IDCardMaker\obj\Debug\net6.0-windows\IDCardMaker.genruntimeconfig.cache
 C:\Users\victo\Desktop\Github\IDCardMaker\obj\Debug\net6.0-windows\ref\IDCardMaker.dll
+C:\Users\HG\Desktop\Github\ArknightsIDCard\IDCardMaker\obj\Debug\net6.0-windows\MyDictionary.baml

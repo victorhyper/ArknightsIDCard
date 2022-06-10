@@ -16,9 +16,34 @@
         Title="MainWindow" Height="900" Width="1200">
     <Grid>
         <materialDesign:Card Grid.Row="0" Grid.Column="0">
-            <TabControl Width="1200" Height="900" TabStripPlacement="Left" Style="{StaticResource MaterialDesignFilledTabControl}">
+            <TabControl Width="1200" Height="900" TabStripPlacement="Left" Style="{StaticResource MaterialDesignFilledTabControl}" SelectionChanged="TabControl_SelectionChanged">
                 <TabItem Header="博士基本信息">
-                    <TextBlock Margin="8" Text="Left placement" />
+                    <Grid>
+                        <StackPanel Width="200">
+                            <TextBox
+                            x:Name="NameTextBox"
+                            materialDesign:HintAssist.Hint="Name"
+                            materialDesign:HintAssist.HelperText="">
+                            </TextBox>
+                            <TextBox
+                            x:Name="IDTextBox"
+                            materialDesign:HintAssist.Hint="ID"
+                            materialDesign:HintAssist.HelperText="">
+                            </TextBox>
+                            <DatePicker
+                                Width="200"
+                                x:Name="DateIn"
+                                materialDesign:HintAssist.Hint="注册时间"
+                                materialDesign:TextFieldAssist.HasClearButton="True"
+                                Style="{StaticResource MaterialDesignFloatingHintDatePicker}" />
+                            <DatePicker
+                                Width="200"
+                                x:Name="DateNow"
+                                materialDesign:HintAssist.Hint="当前时间"
+                                materialDesign:TextFieldAssist.HasClearButton="True"
+                                Style="{StaticResource MaterialDesignFloatingHintDatePicker}" />
+                        </StackPanel>
+                    </Grid>
                 </TabItem>
                 <TabItem Header="干员信息">
                     <ScrollViewer Margin="0,0,0,0"  HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Visible">
@@ -62,6 +87,9 @@
                             </Grid.ColumnDefinitions>
                         </Grid>
                     </ScrollViewer>
+                </TabItem>
+                <TabItem Header="预览">
+                    
                 </TabItem>
             </TabControl>
         </materialDesign:Card>

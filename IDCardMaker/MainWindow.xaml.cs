@@ -238,7 +238,20 @@ namespace IDCardMaker
                 bitmap.EndInit();
                 bitmap.Freeze();
                 popWindow.OperatorPhoto.Source = bitmap;
+                popWindow.SetShow();
                 popWindow.ShowDialog();
+                if (popWindow.Refresh)
+                {
+                    ((Image)sender).DataContext = popWindow.op;
+                    BitmapImage bitmap1 = new BitmapImage();
+                    bitmap1.BeginInit();
+                    bitmap1.UriSource = new Uri(op.ImagePath, UriKind.Relative);
+                    bitmap1.DecodePixelHeight = 60;
+                    bitmap1.DecodePixelWidth = 60;
+                    bitmap1.EndInit();
+                    bitmap1.Freeze();
+                    ((Image)sender).Source = bitmap1;
+                }
             }
         }
         private void Image_OnMouseHover(object sender,MouseEventArgs e)
@@ -252,6 +265,27 @@ namespace IDCardMaker
             {
                 ((Border)sender).BorderBrush = new SolidColorBrush(Color.FromArgb(0, 0, 0, 0));
                 return;
+            }
+        }
+
+        private void TabControl_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            var tab = e.AddedItems[0] as TabItem;
+            var tabControl = sender as TabControl;
+            List<Operator> ops = new List<Operator>();
+            if (tab == tabControl.Items[2])
+            {
+                for(int i=0;i<CharacterGrid.Children.Count;i++)
+                {
+                    var imageBoarder = CharacterGrid.Children[i] as Border;
+                    var imageControl = imageBoarder.Child as Image;
+                    var op = imageControl.DataContext as Operator;
+                    ops.Add(op);
+                }
+                string re =JsonProcess.ExportJson(ops);
+                StreamWriter streamWriter = new StreamWriter(System.IO.Directory.GetCurrentDirectory() + "\\Source\\BoxData.json");
+                streamWriter.WriteLine(re);
+                streamWriter.Close();
             }
         }
     }

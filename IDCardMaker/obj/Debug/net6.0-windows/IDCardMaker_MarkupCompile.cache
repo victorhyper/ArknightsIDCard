@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\victo\Desktop\Github\IDCardMaker\obj\Debug\net6.0-windows\
+C:\Users\HG\Desktop\Github\ArknightsIDCard\IDCardMaker\obj\Debug\net6.0-windows\
 IDCardMaker
 none
 false
 TRACE;DEBUG;NET;NET6_0;NETCOREAPP
-C:\Users\victo\Desktop\Github\IDCardMaker\App.xaml
-2275458669
+C:\Users\HG\Desktop\Github\ArknightsIDCard\IDCardMaker\App.xaml
+3-1090490282
 
 536585159
-197-1866543680
-MainWindow.xaml;PopWindow.xaml;
+197467594793
+MainWindow.xaml;MyDictionary.xaml;PopWindow.xaml;
 
 False
 

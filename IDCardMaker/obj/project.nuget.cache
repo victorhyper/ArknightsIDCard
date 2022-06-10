@@ -1,12 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "l8OQJekJuwhYXJEaHzDg0oMFQVVJvPDndb/oF6kUz2Mv5JawOa5Wh6KUPh/jbNgVdgB59pc0orqT0vPrwRHCUQ==",
+  "dgSpecHash": "DRbdxJcq0a1qA9zIVQsaEzB2i9bcaxi7WmVdn866XS1V59zTXtqN2hKYcwkQOpe9xnfz6L9nmQI7FR2rcxayDw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\victo\\Desktop\\Github\\IDCardMaker\\IDCardMaker.csproj",
+  "projectFilePath": "C:\\Users\\HG\\Desktop\\Github\\ArknightsIDCard\\IDCardMaker\\IDCardMaker.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\victo\\.nuget\\packages\\materialdesigncolors\\2.0.6\\materialdesigncolors.2.0.6.nupkg.sha512",
-    "C:\\Users\\victo\\.nuget\\packages\\materialdesignthemes\\4.5.0\\materialdesignthemes.4.5.0.nupkg.sha512",
-    "C:\\Users\\victo\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512"
+    "C:\\Users\\HG\\.nuget\\packages\\materialdesigncolors\\2.0.6\\materialdesigncolors.2.0.6.nupkg.sha512",
+    "C:\\Users\\HG\\.nuget\\packages\\materialdesignthemes\\4.5.0\\materialdesignthemes.4.5.0.nupkg.sha512",
+    "C:\\Users\\HG\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512"
   ],
   "logs": []
 }
